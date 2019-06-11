@@ -9,16 +9,77 @@ public class Entity{
         pos = position;
         type = inputType;
         map = currentMap;
-        remainingHP = type.getMaxHealth(); //set max HP
+        HP = type.getMaxHealth(); //set max HP
     }
     private Vector2 pos; //stores the current position of the entity
     private EntityType type; //the type of entity
         private double mass; //I might get rid of this, I might not have time to implement this
     private GameMap map; //the map that this entity is located on
-    private int remainingHP;
+    private int HP;
 
+    public int getHP() {
+        return HP;
+    }
 
+    public void setHP(int HP) {
+        this.HP = HP;
+    }
 
+    public Vector2 getPos() {
+        return pos;
+    }
+
+    public float getX(){
+        return pos.x;
+    }
+
+    public void setX(float x){
+        pos.x = x;
+    }
+
+    public void moveX(float x){
+        pos.x += x;
+    }
+
+    public float getY(){
+        return pos.y;
+    }
+
+    public void setY(float y){
+        pos.y = y;
+    }
+
+    public void moveY(float y){
+        pos.y += y;
+    }
+
+    public void setPos(Vector2 pos) {
+        this.pos = pos;
+    }
+
+    public EntityType getType() {
+        return type;
+    }
+
+    public void setType(EntityType type) {
+        this.type = type;
+    }
+
+    public double getMass() {
+        return mass;
+    }
+
+    public void setMass(double mass) {
+        this.mass = mass;
+    }
+
+    public GameMap getMap() {
+        return map;
+    }
+
+    public void setMap(GameMap map) {
+        this.map = map;
+    }
 }
 /*public abstract class Entity {
     private double xAcceleration, yAcceleration, xVelocity, yVelocity, xPosition, yPosition; //movement components
