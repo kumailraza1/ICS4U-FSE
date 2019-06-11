@@ -2,6 +2,11 @@ package com.mygdx.game.Entities;
 import java.util.ArrayList;
 
 public class LoadEntities {
+    public LoadEntities(){
+
+    }
+}
+/*public class LoadEntities {
     private static ArrayList<Entity> current = new ArrayList<Entity>();
     public static ArrayList<Entity> LoadEntities(){
         return current;
@@ -14,4 +19,4 @@ public class LoadEntities {
 
         }
     }
-}
+}*/

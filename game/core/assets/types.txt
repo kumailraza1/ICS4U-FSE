@@ -1,0 +1,21 @@
+1
+player
+20
+5
+1,badlogic.jpg
+
+FORMAT THIS FILE LIKE THIS:
+number of types
+name (of type 1)
+health
+damage
+texture#,filename1,filename2,filename3, etc...
+name (of type 2)
+health
+damage
+texture#,filename1,filename2,filename3, etc...
+name (of type 3)
+health
+damage
+texture#,filename1,filename2,filename3, etc...
+

@@ -4,7 +4,23 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.Map.GameMap;
 
-public abstract class Entity {
+public class Entity{
+    public Entity (EntityType inputType, Vector2 position, GameMap currentMap){
+        pos = position;
+        type = inputType;
+        map = currentMap;
+        remainingHP = type.getMaxHealth(); //set max HP
+    }
+    private Vector2 pos; //stores the current position of the entity
+    private EntityType type; //the type of entity
+        private double mass; //I might get rid of this, I might not have time to implement this
+    private GameMap map; //the map that this entity is located on
+    private int remainingHP;
+
+
+
+}
+/*public abstract class Entity {
     private double xAcceleration, yAcceleration, xVelocity, yVelocity, xPosition, yPosition; //movement components
     private EntityType type;
     private double mass;
@@ -70,4 +86,4 @@ public abstract class Entity {
     public int getHP(){
         return hp;
     }
-}
+}*/
