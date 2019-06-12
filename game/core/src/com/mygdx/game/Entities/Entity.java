@@ -11,6 +11,29 @@ public class Entity{
         map = currentMap;
         HP = inputType.getMaxHealth(); //set "current" (base) HP to max HP
     }
+    public void updatePos(){
+        moveX(xVelocity);
+        moveY(yVelocity);
+    }
+    private float xVelocity = 0;
+    private float yVelocity = 0;
+
+    public float getxVelocity() {
+        return xVelocity;
+    }
+
+    public void setxVelocity(float xVelocity) {
+        this.xVelocity = xVelocity;
+    }
+
+    public float getyVelocity() {
+        return yVelocity;
+    }
+
+    public void setyVelocity(float yVelocity) {
+        this.yVelocity = yVelocity;
+    }
+
     private Vector2 pos; //stores the current position of the entity
     private EntityType type; //the type of entity
         private double mass; //I might get rid of this, I might not have time to implement this

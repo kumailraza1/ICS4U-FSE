@@ -1,5 +1,7 @@
 package com.mygdx.game.Entities;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
@@ -21,7 +23,16 @@ public class Player{
         batch.draw(currentTexture, player.getX(),player.getY());
     }
     public static void update(){
-
+        player.updatePos();
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A)){
+            player.setxVelocity(-5);
+        }
+        else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D)){
+            player.setxVelocity(5);
+        }
+        else{
+            player.setxVelocity(0);
+        }
     }
     public Rectangle getBoundingRectangle(){ //returns the rectangle bounding the sprite currently
         Rectangle temp = new Rectangle(player.getX(), player.getY(), currentTexture.getWidth(), currentTexture.getHeight());
