@@ -2,6 +2,7 @@ package com.mygdx.game.Entities;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.Map.GameMap;
 
@@ -22,6 +23,11 @@ public class Player{
     public static void update(){
 
     }
+    public Rectangle getBoundingRectangle(){ //returns the rectangle bounding the sprite currently
+        Rectangle temp = new Rectangle(player.getX(), player.getY(), currentTexture.getWidth(), currentTexture.getHeight());
+        return temp;
+    }
+
 }
 
 /*class Player extends Entity {

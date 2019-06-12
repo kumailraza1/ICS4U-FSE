@@ -9,7 +9,7 @@ public class Entity{
         pos = position;
         type = inputType;
         map = currentMap;
-        HP = type.getMaxHealth(); //set max HP
+        HP = inputType.getMaxHealth(); //set "current" (base) HP to max HP
     }
     private Vector2 pos; //stores the current position of the entity
     private EntityType type; //the type of entity
