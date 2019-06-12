@@ -28,14 +28,27 @@ public class Player{
         player.updatePos(); //updates the position of the player based on the current velocity
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A)){ //get movement input
             player.setxVelocity(-5);
+            if(!currentAnimation.equals("jump")) {
+                currentAnimation = "walking";
+            }
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D)){
             player.setxVelocity(5);
-            currentAnimation = "walking";
+            if(!currentAnimation.equals("jump")) {
+                currentAnimation = "walking";
+            }
         }
         else{
             player.setxVelocity(0);
-            currentAnimation = "idle";
+            if(!currentAnimation.equals("jump")) {
+                currentAnimation = "idle";
+            }
+        }
+        System.out.println(currentAnimation);
+        if (Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP) && !currentAnimation.equals("jump")){
+            if(player.getyVelocity() == 0){
+                currentAnimation = "jump";
+            }
         }
 
         if (currentAnimation.equals("walking")){
@@ -44,22 +57,33 @@ public class Player{
         else if (currentAnimation.equals("idle")){
             currentTexture = player.getType().textures.get(0);
         }
+        else if (currentAnimation.equals("jump")){
+            jump();
+        }
     }
     private static int counter = 4;
+    private static void jump(){
+        counter++;
+        if (counter == 5){
+            counter = 0;
+        }
+    }
     private static void walk(){
         counter++;
         if(counter == 5){
+            counter = 0;
             if (animationState + 1 < 8) {
                 animationState++;
                 currentTexture = player.getType().textures.get(animationState + 1);
             }
             else{
                 animationState = 0;
+                counter = 4;
             }
-            counter = 0;
+
         }
     }
-    public Rectangle getBoundingRectangle(){ //returns the rectangle bounding the sprite currently
+    public static Rectangle getBoundingRectangle(){ //returns the rectangle bounding the sprite currently
         Rectangle temp = new Rectangle(player.getX(), player.getY(), currentTexture.getWidth(), currentTexture.getHeight());
         return temp;
     }
