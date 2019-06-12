@@ -1,6 +1,7 @@
 package com.mygdx.game.Map;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.math.Rectangle;
 
 public abstract class GameMap {
     public abstract void render (OrthographicCamera camera);
@@ -33,6 +34,10 @@ public abstract class GameMap {
         }
 
         return false;
+    }
+
+    public boolean doesCollide(Rectangle rect){
+        return doesRectCollideWithMap(rect.getX(), rect.getY(), (int)rect.getWidth(), (int)rect.getHeight());
     }
     public int getPixelWidth() {
         return this.getWidth() * TileType.TILE_SIZE;
