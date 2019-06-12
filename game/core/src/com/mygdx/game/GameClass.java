@@ -41,10 +41,10 @@ import java.awt.*;
 		Player.render(batch);
 		Rectangle rect = Player.getBoundingRectangle();
 		System.out.println(gameMap.doesRectCollideWithMap(rect.getX(),rect.getY(),(int)rect.getWidth(),(int)rect.getHeight()));
-		TileType type = gameMap.getTileTypeByLocation(0, 10, 50);
-		if(type!=null){
-			System.out.println(type.getId());
-		}
+		//TileType type = gameMap.getTileTypeByLocation(0, 10, 50);
+		//if(type!=null){
+			//System.out.println(type.getId());
+		//}
 
 		batch.end();
 	}
