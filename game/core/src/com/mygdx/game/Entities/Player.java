@@ -22,6 +22,8 @@ public class Player{
     public static void render (SpriteBatch batch){
         batch.draw(currentTexture, player.getX(),player.getY());
     }
+    private static String currentAnimation = "idle";
+    private static int animationState = 0;
     public static void update(){
         player.updatePos(); //updates the position of the player based on the current velocity
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A)){ //get movement input
@@ -29,9 +31,32 @@ public class Player{
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D)){
             player.setxVelocity(5);
+            currentAnimation = "walking";
         }
         else{
             player.setxVelocity(0);
+            currentAnimation = "idle";
+        }
+
+        if (currentAnimation.equals("walking")){
+            walk();
+        }
+        else if (currentAnimation.equals("idle")){
+            currentTexture = player.getType().textures.get(0);
+        }
+    }
+    private static int counter = 4;
+    private static void walk(){
+        counter++;
+        if(counter == 5){
+            if (animationState + 1 < 8) {
+                animationState++;
+                currentTexture = player.getType().textures.get(animationState + 1);
+            }
+            else{
+                animationState = 0;
+            }
+            counter = 0;
         }
     }
     public Rectangle getBoundingRectangle(){ //returns the rectangle bounding the sprite currently

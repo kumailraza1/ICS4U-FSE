@@ -2,7 +2,7 @@
 player
 20
 5
-1,badlogic.jpg
+9,temp.png,walk1.png,walk2.png,walk3.png,walk4.png,walk5.png,walk6.png,walk7.png,walk8.png
 
 FORMAT THIS FILE LIKE THIS:
 number of types
