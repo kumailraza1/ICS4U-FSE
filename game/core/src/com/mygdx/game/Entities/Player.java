@@ -66,6 +66,7 @@ public class Player{
         counter++;
         if (counter == 5){
             counter = 0;
+            currentAnimation = "idle";
         }
     }
     private static void walk(){
