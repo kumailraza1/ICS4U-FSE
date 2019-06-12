@@ -13,7 +13,7 @@ public enum TileType {
     private boolean dangerous;
 
     private TileType(int identification, boolean collision, boolean causesDamage){
-        identification = id;
+        id = identification ;
         collidable = collision;
         dangerous = causesDamage;
     }

@@ -7,12 +7,16 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.mygdx.game.Entities.LoadTypes;
 import com.mygdx.game.Entities.Player;
 import com.mygdx.game.Map.GameMap;
+import com.mygdx.game.Map.TileType;
 import com.mygdx.game.Map.TiledGameMap;
 
-public class GameClass extends ApplicationAdapter {
+import java.awt.*;
+
+ public class GameClass extends ApplicationAdapter {
 	SpriteBatch batch;
 	OrthographicCamera camera;
 	GameMap gameMap;
@@ -35,6 +39,13 @@ public class GameClass extends ApplicationAdapter {
 		gameMap.render(camera);
 		batch.begin();
 		Player.render(batch);
+		Rectangle rect = Player.getBoundingRectangle();
+		System.out.println(gameMap.doesRectCollideWithMap(rect.getX(),rect.getY(),(int)rect.getWidth(),(int)rect.getHeight()));
+		TileType type = gameMap.getTileTypeByLocation(0, 10, 50);
+		if(type!=null){
+			System.out.println(type.getId());
+		}
+
 		batch.end();
 	}
 	
