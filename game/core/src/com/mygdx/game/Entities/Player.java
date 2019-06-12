@@ -59,7 +59,7 @@ public class Player{
             counter = 0;
         }
     }
-    public Rectangle getBoundingRectangle(){ //returns the rectangle bounding the sprite currently
+    public static Rectangle getBoundingRectangle(){ //returns the rectangle bounding the sprite currently
         Rectangle temp = new Rectangle(player.getX(), player.getY(), currentTexture.getWidth(), currentTexture.getHeight());
         return temp;
     }
