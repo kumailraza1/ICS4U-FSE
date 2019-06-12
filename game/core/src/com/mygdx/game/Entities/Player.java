@@ -23,8 +23,8 @@ public class Player{
         batch.draw(currentTexture, player.getX(),player.getY());
     }
     public static void update(){
-        player.updatePos();
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A)){
+        player.updatePos(); //updates the position of the player based on the current velocity
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A)){ //get movement input
             player.setxVelocity(-5);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D)){
