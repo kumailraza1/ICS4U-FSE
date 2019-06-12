@@ -46,6 +46,13 @@ public class Player{
         }
     }
     private static int counter = 4;
+
+    private static void jump(){
+        counter++;
+        if (counter == 5){
+            counter = 0;
+        }
+    }
     private static void walk(){
         counter++;
         if(counter == 5){
