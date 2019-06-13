@@ -1,5 +1,36 @@
+
 package com.mygdx.game.Entities;
 
+import com.badlogic.gdx.physics.box2d.*;
+import com.mygdx.game.GameClass;
+
+public class Player{
+    World world;
+    public Body b2body;
+
+    public Player(World world){
+        this.world=world;
+        definePlayer();
+    }
+
+
+    public void definePlayer(){
+        BodyDef bdef = new BodyDef();
+        bdef.position.set(50/ GameClass.PPM,180/GameClass.PPM);
+        bdef.type = BodyDef.BodyType.DynamicBody;
+        b2body = world.createBody(bdef);
+
+        FixtureDef fdef= new FixtureDef();
+        CircleShape shape = new CircleShape();
+        shape.setRadius(40/GameClass.PPM);
+        fdef.shape = shape;
+        b2body.createFixture(fdef);
+    }
+
+}
+
+
+/*
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
@@ -82,7 +113,7 @@ public class Player{
 
 }
 
-/*class Player extends Entity {
+class Player extends Entity {
     private Texture img;
     @Override
     public void create (Vector2 pos, EntityType type, GameMap map) {
