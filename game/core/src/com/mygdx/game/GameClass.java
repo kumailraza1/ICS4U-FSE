@@ -77,7 +77,7 @@ import java.awt.*;
         FixtureDef fdef = new FixtureDef();
         Body body;
         //Box2D for the ground
-        for(MapObject object: map.getLayers().get(1).getObjects().getByType(RectangleMapObject.class)){
+        for(MapObject object: map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect=((RectangleMapObject)object).getRectangle();
             bdef.type = BodyDef.BodyType.StaticBody;
             bdef.position.set((rect.getX()+rect.getWidth() / 2)/PPM, (rect.getY()+rect.getHeight()/2)/PPM);
@@ -89,7 +89,7 @@ import java.awt.*;
             body.createFixture(fdef);
         }
         //Box2D for the obstacles
-        for(MapObject object: map.getLayers().get(0).getObjects().getByType(RectangleMapObject.class)){
+        for(MapObject object: map.getLayers().get(1).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect=((RectangleMapObject)object).getRectangle();
             bdef.type = BodyDef.BodyType.StaticBody;
             bdef.position.set((rect.getX()+rect.getWidth() / 2)/PPM, (rect.getY()+rect.getHeight()/2)/PPM);
@@ -127,7 +127,9 @@ import java.awt.*;
 	    handleInput();
         world.step(1/60f,6,2);
         //camera moves according to the movement of mario
-        camera.position.x=player.b2body.getPosition().x;
+        if(player.b2body.getPosition().x>=Gdx.graphics.getWidth()/2/PPM){
+            camera.position.x = player.b2body.getPosition().x;
+        }
         camera.update();
         renderer.setView(camera);
     }
