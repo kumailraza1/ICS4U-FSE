@@ -28,13 +28,21 @@ public class Player{
         player.updatePos(); //updates the position of the player based on the current velocity
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyPressed(Input.Keys.A)){ //get movement input
             player.setxVelocity(-5);
+            currentAnimation = "walking";
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyPressed(Input.Keys.D)){
             player.setxVelocity(5);
             currentAnimation = "walking";
         }
+        else if (Gdx.input.isKeyPressed(Input.Keys.UP) || Gdx.input.isKeyPressed(Input.Keys.W)){
+            player.setyVelocity(5);
+        }
+        else if (Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.S)){
+            player.setyVelocity(-5);
+        }
         else{
             player.setxVelocity(0);
+            player.setyVelocity(0);
             currentAnimation = "idle";
         }
 
@@ -53,6 +61,7 @@ public class Player{
             counter = 0;
         }
     }
+
     private static void walk(){
         counter++;
         if(counter == 5){
