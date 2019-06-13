@@ -101,8 +101,7 @@ import java.awt.*;
             body.createFixture(fdef);
         }
         camera.update();
-		//gameMap = new TiledGameMap();
-        //Player.create(map);
+
 
 	}
 
@@ -151,15 +150,7 @@ import java.awt.*;
         // renderer our BOX2DDebugLines
         b2dr.render(world,camera.combined);
 
-		//Rectangle rect = Player.getBoundingRectangle();
-		//System.out.println(gameMap.doesRectCollideWithMap(rect.getX(),rect.getY(),(int)rect.getWidth(),(int)rect.getHeight()));
-		//TileType type = gameMap.getTileTypeByLocation(0, 10, 50);
-		//if(type!=null){
-			//System.out.println(type.getId());
-		//}
 
-		//System.out.println(gameMap.doesCollide(Player.getBoundingRectangle()));
-        //TileType type = gameMap.getTileTypeByLocation(0, 10, 50);
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         playerimg.setPosition(player.b2body.getPosition().x - playerimg.getWidth() / 2, player.b2body.getPosition().y - playerimg.getHeight() / 2);
